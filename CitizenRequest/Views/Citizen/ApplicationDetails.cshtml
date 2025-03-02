@@ -1,0 +1,74 @@
+﻿@model ApplicationDetailsViewModel
+@using CitizenRequest.Extensions
+
+<div class="container py-5">
+    <div class="cont-height"></div>
+
+    <!-- Карточка обращения -->
+    <div class="card border-0 shadow rounded-4 overflow-hidden">
+        <!-- Заголовок карточки -->
+        <div class="card-header bg-gradient-primary py-4">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="h4 mb-0 text-white">
+                    <i class="fas fa-comments me-2"></i>Обращение #@Model.Application.ApplicationId
+                </h2>
+                <span class="badge rounded-pill bg-@Model.Application.Status.GetBadgeClass() py-2 px-3">
+                    @Model.Application.Status.GetDisplayName()
+                </span>
+            </div>
+            <small class="text-white-50">Категория: @Model.Application.Category.CategoryName</small>
+        </div>
+
+        <!-- Контейнер для сообщений -->
+        <div id="chatMessages" class="card-body p-4" style="max-height: 60vh; overflow-y: auto;">
+            @Html.Partial("_MessagesPartial", Model.Application.Responses)
+        </div>
+
+        <!-- Форма отправки сообщения -->
+        <div class="card-footer bg-light p-4">
+            <form asp-action="SendMessage" asp-route-applicationId="@Model.Application.ApplicationId" method="post">
+                <div class="input-group">
+                    <textarea asp-for="NewMessage.Message" class="form-control rounded-pill shadow-sm"
+                              placeholder="Введите ваше сообщение..." rows="2"></textarea>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary rounded-pill ms-3 shadow-sm">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                <span asp-validation-for="NewMessage.Message" class="text-danger small"></span>
+            </form>
+        </div>
+    </div>
+
+    <!-- Кнопка "Назад" -->
+    <div class="mt-4 text-center">
+        <a asp-action="Dashboard" class="btn btn-secondary rounded-pill shadow-sm">
+            <i class="fas fa-arrow-left me-2"></i>Назад к списку обращений
+        </a>
+    </div>
+    <div class="cont-height"></div>
+</div>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Функция для обновления сообщений
+            function updateMessages() {
+                $.ajax({
+                    url: '@Url.Action("GetMessages", "Citizen", new { applicationId = Model.Application.ApplicationId })',
+                    type: 'GET',
+                    success: function (data) {
+                        $("#chatMessages").html(data);
+                        // Прокрутка вниз после обновления
+                        $("#chatMessages").scrollTop($("#chatMessages")[0].scrollHeight);
+                    }
+                });
+            }
+
+            // Опрашиваем сервер каждые 5 секунд (5000 мс)
+            setInterval(updateMessages, 1000);
+        });
+    </script>
+}

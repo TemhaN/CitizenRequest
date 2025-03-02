@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Помощь";
+}
+
+<div class="container my-5">
+    <div class="cont-height"></div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow rounded-4">
+                <div class="card-header bg-primary text-white py-3 rounded-top-4">
+                    <h1 class="h3 mb-0">
+                        <i class="fas fa-question-circle me-2"></i>@ViewData["Title"]
+                    </h1>
+                </div>
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="h4 fw-bold mb-4">Часто задаваемые вопросы</h2>
+
+                    <div class="accordion" id="faqAccordion">
+                        <!-- Вопрос 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                    Как подать обращение?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Для подачи обращения необходимо зарегистрироваться на платформе, выбрать категорию
+                                    проблемы и заполнить форму. После этого ваше обращение будет отправлено на обработку.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Вопрос 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                    Как отслеживать статус обращения?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Вы можете отслеживать статус вашего обращения в личном кабинете. Там будут отображаться
+                                    все обновления и комментарии от ответственных органов.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Вопрос 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                    Сколько времени занимает обработка обращения?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Среднее время обработки обращения составляет от 1 до 3 рабочих дней. В зависимости от сложности проблемы сроки могут быть увеличены. Вы всегда можете отслеживать статус обращения в личном кабинете.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Вопрос 4 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                                    Какие категории обращений поддерживаются?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Мы поддерживаем широкий спектр категорий, включая проблемы с дорогами, ЖКХ, экологией, общественным транспортом и многое другое. Полный список категорий доступен на главной странице при подаче обращения.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Вопрос 5 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
+                                    Можно ли подать анонимное обращение?
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Нет, для подачи обращения требуется регистрация на платформе. Это необходимо для обеспечения прозрачности и возможности обратной связи с вами.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="alert alert-info mt-4">
+                        <i class="fas fa-life-ring me-2"></i>
+                        Если у вас остались вопросы, свяжитесь с нами через <a href="#" class="alert-link">форму обратной связи</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cont-height"></div>
+</div>

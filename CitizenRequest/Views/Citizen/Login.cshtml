@@ -1,0 +1,100 @@
+﻿@using CitizenRequest.Models
+@model HomePageViewModel
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<div class="container py-5">
+    <div class="cont-height"></div>
+    <div class="card border-0 shadow-lg rounded-3 overflow-hidden">
+        <div class="card-header bg-gradient-primary bg-primary py-4">
+            <h2 class="text-white mb-0 text-center">
+                <i class="fas fa-comment-dots me-2"></i>Обращение граждан
+            </h2>
+        </div>
+
+        <div class="card-body p-4 p-md-5">
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <form asp-action="Register" method="post" class="needs-validation" novalidate>
+                    @* Условный рендеринг блока ошибок *@
+                    @if (ViewData.ModelState.ErrorCount > 0)
+                    {
+                        <div asp-validation-summary="All" class="alert alert-danger mb-4"></div>
+                    }
+
+                    <input type="hidden" asp-for="SelectedCategoryId" />
+                    <input type="hidden" name="returnUrl"
+                           value="@(ViewData["ReturnUrl"] ?? Url.Action("Dashboard", "Citizen"))" />
+
+                    <div class="row g-4">
+                        <!-- Левая колонка -->
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="RegisterModel.FullName" class="form-control"
+                                       placeholder="Иванов Иван Иванович" />
+                                <label asp-for="RegisterModel.FullName" class="form-label">
+                                    <i class="fas fa-user me-2 text-primary"></i>ФИО
+                                </label>
+                                <span asp-validation-for="RegisterModel.FullName" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <!-- Правая колонка -->
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="RegisterModel.Email" type="email" class="form-control"
+                                       placeholder="name@example.com" />
+                                <label asp-for="RegisterModel.Email" class="form-label">
+                                    <i class="fas fa-envelope me-2 text-primary"></i>Email
+                                </label>
+                                <span asp-validation-for="RegisterModel.Email" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="RegisterModel.PhoneNumber" class="form-control"
+                                       placeholder="+7 (999) 999-99-99" />
+                                <label asp-for="RegisterModel.PhoneNumber" class="form-label">
+                                    <i class="fas fa-mobile-alt me-2 text-primary"></i>Телефон
+                                </label>
+                                <span asp-validation-for="RegisterModel.PhoneNumber" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea asp-for="RegisterModel.Address" class="form-control"
+                                          placeholder="Адрес" style="height: 100px"></textarea>
+                                <label asp-for="RegisterModel.Address" class="form-label">
+                                    <i class="fas fa-map-marker-alt me-2 text-primary"></i>Адрес
+                                </label>
+                                <span asp-validation-for="RegisterModel.Address" class="text-danger small"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid mt-5">
+                        <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-sm">
+                            <i class="fas fa-paper-plane me-2"></i>Отправить обращение
+                        </button>
+                    </div>
+                </form>
+            }
+            else
+            {
+                <div class="alert alert-info d-flex align-items-center justify-content-between">
+                    <div>
+                        <i class="fas fa-info-circle me-2"></i>
+                        Вы авторизованы как <strong>@User.Identity.Name</strong>. Для подачи обращения перейдите в личный кабинет.
+                    </div>
+                    <form asp-action="Logout" method="post">
+                        <button type="submit" class="btn btn-outline-warning">
+                            <i class="fas fa-sign-out-alt me-2"></i>Выйти
+                        </button>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</div>

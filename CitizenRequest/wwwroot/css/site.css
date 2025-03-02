@@ -1,0 +1,264 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.cont-height {
+    height: 150px
+}
+.hero-banner {
+    background: linear-gradient(rgba(30, 60, 114, 0.9), rgba(42, 82, 152, 0.9)), url('/images/banner.jpg') center/cover fixed;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.category-card {
+    border: none;
+    border-radius: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+    .category-card:hover {
+        transform: translateY(-0.5rem);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    }
+
+.icon-wrapper {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.transform-on-hover:hover .icon-wrapper {
+    transform: rotate(15deg) scale(1.1);
+}
+
+.categories-section h2 {
+    top: -1.5rem;
+    z-index: 1;
+}
+
+.card-header {
+    background: linear-gradient(45deg, #1e3c72, #2a5298);
+}
+
+.form-control:focus {
+    border-color: #1e3c72;
+    box-shadow: 0 0 0 0.25rem rgba(30, 60, 114, 0.25);
+}
+
+.btn-primary {
+    background-color: #1e3c72;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #2a5298;
+        transform: translateY(-2px);
+    }
+
+.form-floating label {
+    padding-left: 2.5rem;
+}
+
+.form-floating i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+}
+
+
+.bg-gradient-primary {
+    background: linear-gradient(45deg, #1e3c72, #2a5298) !important;
+}
+
+.navbar {
+    padding: 0.5rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link {
+    padding: 0.75rem 1.25rem !important;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+    .nav-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+.dropdown-menu {
+    min-width: 220px;
+    background: #fff;
+}
+
+.dropdown-item {
+    transition: all 0.2s ease;
+}
+
+    .dropdown-item:hover {
+        background: #f8f9fa;
+        padding-left: 1.5rem !important;
+    }
+
+.footer {
+    background: #1a1a1a;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+}
+.list-group-item {
+    transition: all 0.3s ease;
+    border: none;
+}
+
+    .list-group-item:hover {
+        background-color: #f8f9fa;
+        transform: translateX(5px);
+    }
+
+.badge {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.card {
+    border: none;
+}
+
+.card-header {
+    background: linear-gradient(45deg, #1e3c72, #2a5298);
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+    .btn-success:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+    }
+
+.bg-gradient-primary {
+    background: linear-gradient(45deg, #1e3c72, #2a5298);
+}
+
+.chat-message {
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 80%;
+    transition: all 0.3s ease;
+}
+
+.citizen-message {
+    background: #e3f2fd;
+    margin-left: auto;
+}
+
+.admin-message {
+    background: #f8f9fa;
+    margin-right: auto;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: #6c757d;
+}
+
+.message-content {
+    white-space: pre-wrap;
+}
+
+.badge {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #1e3c72;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #2a5298;
+        transform: translateY(-2px);
+    }
+
+.form-control {
+    border-radius: 0.5rem;
+    border: 1px solid #dee2e6;
+    transition: all 0.3s ease;
+}
+
+    .form-control:focus {
+        border-color: #1e3c72;
+        box-shadow: 0 0 0 0.25rem rgba(30, 60, 114, 0.25);
+    }
+.chat-message {
+    max-width: 80%;
+    transition: all 0.3s ease;
+}
+
+.citizen-message {
+    background: #e3f2fd;
+    margin-left: auto;
+}
+
+.admin-message {
+    background: #f8f9fa;
+    margin-right: auto;
+}
+
+.message-header {
+    font-size: 0.9em;
+}
+
+.message-content {
+    white-space: pre-wrap;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.badge {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.rounded-3 {
+    border-radius: 1rem !important;
+}

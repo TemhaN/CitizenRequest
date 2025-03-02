@@ -1,0 +1,60 @@
+﻿@using CitizenRequest.Models // Или ваше пространство имен
+@model ApplicationCreateViewModel
+
+<div class="container py-5">
+    <div class="cont-height"></div>
+
+    <!-- Кнопка "Назад" -->
+    <a href="javascript:history.back()" class="btn btn-secondary rounded-pill shadow-sm mb-4">
+        <i class="fas fa-arrow-left me-2"></i>Назад
+    </a>
+
+    <!-- Карточка формы -->
+    <div class="card border-0 shadow rounded-4 overflow-hidden">
+        <div class="card-header bg-gradient-primary py-4">
+            <h2 class="h4 mb-0 text-white">
+                <i class="fas fa-edit me-2"></i>Подача обращения: @Model.CategoryName
+            </h2>
+        </div>
+        <div class="card-body p-4 p-md-5">
+            <!-- Ошибки валидации -->
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger rounded-4 mb-4">
+                    <h5 class="fw-bold">
+                        <i class="fas fa-exclamation-circle me-2"></i>Ошибки валидации:
+                    </h5>
+                    <ul class="mb-0">
+                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        {
+                            <li>@error.ErrorMessage</li>
+                        }
+                    </ul>
+                </div>
+            }
+
+            <!-- Форма -->
+            <form asp-action="CreateApplication" method="post">
+                <input type="hidden" asp-for="SelectedCategoryId" value="@Model.SelectedCategoryId" />
+                <input type="hidden" asp-for="CategoryName" value="@Model.CategoryName" />
+
+                <!-- Поле для описания -->
+                <div class="form-group mb-4">
+                    <label asp-for="Description" class="form-label fw-bold">
+                        <i class="fas fa-align-left me-2 text-primary"></i>Описание проблемы
+                    </label>
+                    <textarea asp-for="Description" class="form-control" rows="6" placeholder="Опишите вашу проблему..."></textarea>
+                    <span asp-validation-for="Description" class="text-danger small"></span>
+                </div>
+
+                <!-- Кнопка отправки -->
+                <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5 py-3 shadow-sm">
+                        <i class="fas fa-paper-plane me-2"></i>Отправить обращение
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
