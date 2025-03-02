@@ -1,4 +1,4 @@
-# CitizenRequest - С№ MVC ASP.NET Core 
+# CitizenRequest - С# MVC ASP.NET Core 
 
 CitizenRequest - Это полноценный, адаптивный сайт под разные устройства, весь функционал работает
 
